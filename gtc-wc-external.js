@@ -2,7 +2,6 @@ import {LitElement, html, css } from 'lit-element';
 
 class GtcWcExternal extends LitElement {
   static styles = css`
-
     .externalList {
       margin: 10px 0 0;
       padding: 0;
@@ -80,17 +79,26 @@ class GtcWcExternal extends LitElement {
   _processHtml() {
     return html `
     <ul class="externalList">
-      ${Object.keys(this.sampleids).map(item => html`
-      <span>${item}: ${this.sampleids[item].label}&nbsp;<span>
+    ${Object.keys(this.sampleids).map(item => html`
+    <li>
       <p class="externalList_heading">${this.sampleids[item].label}</p>
-      <p class="externalList_heading">this.sampleids[item]: ${this.sampleids[item]}</p>
-      <p>${this.sampleids[item].list.map(item => html`
-          <span>${item.id}: </span>
-          <li><a href="${item.url}" target="_blank">${item.id}</a></li>
+      <ul class="externalList_category">
+        ${this.sampleids[item].list.map(item => html`
+        <li><a href="${item.url}" target="_blank">${item.id}</a></li>
+        `)}
+      </ul>
+      <div class="source">
+        <a class="source_btn">from ${this.sampleids[item].from}</a>
+        <div class="source_content">
+          <p class="source_text">
+            ${this.sampleids[item].description}</br>
+            URL: <a href="{{this.partnerurl}}" target="_blank">${this.sampleids[item].partnerurl}</a>
+          </p>
+        </div>
+		  </div>
 
-          `)}</p>
-
-      `)}
+    </li>
+    `)}
     </ul>
     `;
   }
