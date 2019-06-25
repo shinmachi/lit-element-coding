@@ -1,5 +1,5 @@
 import {LitElement, html, css } from 'lit-element';
-
+import
 class GtcWcExternal extends LitElement {
   static styles = css`
     .externalList {
@@ -96,7 +96,6 @@ class GtcWcExternal extends LitElement {
           </p>
         </div>
 		  </div>
-
     </li>
     `)}
     </ul>
