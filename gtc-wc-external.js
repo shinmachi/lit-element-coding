@@ -7,140 +7,15 @@ class GtcWcExternal extends LitElement {
       accession: String
     };
   }
-
-  static styles = css`
-    main {
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      overflow: hidden;
-    }
-
-    .externalList {
-      margin: 10px 0 0;
-      padding: 0;
-      font-size: 14px;
-      list-style-type: none;
-    }
-
-    .externalList > li.stanzaNothingFound {
-      width: 100%;
-      float: none;
-      margin: 0 0 10px;
-      padding: 5px 0;
-      background: #EEE;
-      color: #999;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .externalList > li:before, .externalList > li:after {
-      content: " ";
-      display: table;
-    }
-
-    .externalList > li:after {
-      clear: both;
-    }
-
-    .externalList > li + li {
-      margin: 20px 0 0;
-      padding: 0;
-    }
-
-    .externalList_heading {
-      width: 20%;
-      margin: 0;
-      padding: 0;
-      float: left;
-    }
-
-    .externalList_category {
-      width: 80%;
-      margin: 0;
-      float: left;
-      list-style-type: disc;
-    }
-
-    .externalList_category:before, .externalList_category:after {
-      content: " ";
-      display: table;
-    }
-
-    .externalList_category:after {
-      clear: both;
-    }
-
-    .externalList_category > li {
-      min-width: 100px;
-      margin: 0 15px 0 0;
-      float: left;
-      line-height: 2;
-    }
-
-    .externalList_category > li > a {
-      color: #09D;
-      text-decoration: underline;
-    }
-
-
-    /* Partner Explanation */
-    .source {
-      margin: 15px 0 0;
-      padding: 0;
-      text-align: right;
-      font-size: 14px;
-    }
-
-    .source_content {
-      display: none;
-      margin: 5px 0 10px;
-      padding: 20px;
-      background: #FFC;
-    }
-
-    .source_content--show {
-      display: block;
-    }
-
-    .source_text {
-      margin: 0;
-      padding: 0;
-      text-align: left;
-      color: #787878;
-      font-size: 14px;
-    }
-
-    .source_btn {
-      margin: 0 0 0 auto;
-      width: 150px;
-      padding: 0;
-      padding: 5px 0;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .source_btn:hover {
-      background-color: #EEE;
-    }
-  `;
-
   render() {
     return html `
+    <link rel="stylesheet" href="./styles.css">
+    <div>${this._processHtml()}<div>
+    <script>
 
-  <div id="summary">${this._processHtml()}<div>
+    </script>
    `;
   }
-
-
-  // </div>
-  // <div>
-  // sampleids: ${this.sampleids}
-  // accession: ${this.accession}
-  // accessionhtml: <p>Accession Number:${this._accessionHtml()}</p>
-  // ${this._massHtml()}
-  // ${this._contributionHtml()}
 
   constructor() {
     super();
@@ -199,7 +74,7 @@ class GtcWcExternal extends LitElement {
         <div class="source_content">
           <p class="source_text">
             ${this.sampleids[item].description}</br>
-            URL: <a href="{{this.partnerurl}}" target="_blank">${this.sampleids[item].partnerurl}</a>
+            URL: <a href="${this.sampleids[item].partnerurl}" target="_blank">${this.sampleids[item].partnerurl}</a>
           </p>
         </div>
 		  </div>
@@ -207,6 +82,9 @@ class GtcWcExternal extends LitElement {
     `)}
     </ul>
     `;
+  }
+  sourceButton(){
+
   }
 }
 
