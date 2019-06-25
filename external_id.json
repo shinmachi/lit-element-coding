@@ -1,0 +1,99 @@
+{
+  "data": {
+    "PubChem CID": {
+      "list": [
+        {
+          "id": "91845017",
+          "url": "http://pubchem.ncbi.nlm.nih.gov/compound/CID91845017"
+        }
+      ],
+      "label": "PubChem CID",
+      "from": "GlycoNAVI",
+      "description": "GlycoNAVI is a gateway to free suite of carbohydrate research tools.",
+      "partnerurl": "http://ws.glyconavi.org/"
+    },
+    "PubChem SID": {
+      "list": [
+        {
+          "id": "252295722",
+          "url": "http://pubchem.ncbi.nlm.nih.gov/substance/SID252295722"
+        }
+      ],
+      "label": "PubChem SID",
+      "from": "GlycoNAVI",
+      "description": "GlycoNAVI is a gateway to free suite of carbohydrate research tools.",
+      "partnerurl": "http://ws.glyconavi.org/"
+    },
+    "GlycomeDB": {
+      "list": [
+        {
+          "id": "33872",
+          "url": "http://www.glycome-db.org/database/showStructure.action?glycomeId=33872"
+        },
+        {
+          "id": "28419",
+          "url": "http://www.glycome-db.org/database/showStructure.action?glycomeId=28419"
+        },
+        {
+          "id": "33978",
+          "url": "http://www.glycome-db.org/database/showStructure.action?glycomeId=33978"
+        },
+        {
+          "id": "28549",
+          "url": "http://www.glycome-db.org/database/showStructure.action?glycomeId=28549"
+        }
+      ],
+      "label": "GlycomeDB",
+      "from": "GlycomeDB",
+      "description": "GlycomeDB is a database of carbohydrates including structural and taxonomic data.",
+      "partnerurl": "http://www.glycome-db.org/"
+    },
+    "Carbbank(CCSD)": {
+      "list": [
+        {
+          "id": "34433",
+          "url": "http://www.genome.jp/dbget-bin/www_bget?carbbank+34433"
+        },
+        {
+          "id": "34337",
+          "url": "http://www.genome.jp/dbget-bin/www_bget?carbbank+34337"
+        }
+      ],
+      "label": "Carbbank(CCSD)",
+      "from": "GlycomeDB",
+      "description": "GlycomeDB is a database of carbohydrates including structural and taxonomic data.",
+      "partnerurl": "http://www.glycome-db.org/"
+    },
+    "JCGGDB": {
+      "list": [
+        {
+          "id": "JCGG-STR019933",
+          "url": "http://jcggdb.jp/idb/jcggdb/JCGG-STR019933"
+        },
+        {
+          "id": "JCGG-STR019797",
+          "url": "http://jcggdb.jp/idb/jcggdb/JCGG-STR019797"
+        }
+      ],
+      "label": "JCGGDB",
+      "from": "GlycomeDB",
+      "description": "GlycomeDB is a database of carbohydrates including structural and taxonomic data.",
+      "partnerurl": "http://www.glycome-db.org/"
+    },
+    "GLYCOSCIENCES.de": {
+      "list": [
+        {
+          "id": "15601",
+          "url": "http://www.glycosciences.de/database/start.php?action=explore_linucsid&linucsid=15601&show=1#struct%0A%20%20%09%09"
+        },
+        {
+          "id": "8914",
+          "url": "http://www.glycosciences.de/database/start.php?action=explore_linucsid&linucsid=8914&show=1#struct%0A%20%20%09%09"
+        }
+      ],
+      "label": "GLYCOSCIENCES.de",
+      "from": "GlycomeDB",
+      "description": "GlycomeDB is a database of carbohydrates including structural and taxonomic data.",
+      "partnerurl": "http://www.glycome-db.org/"
+    }
+  }
