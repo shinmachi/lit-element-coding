@@ -3,7 +3,7 @@ import {LitElement, html} from 'lit-element';
 class GtcWcExternal extends LitElement {
   static get properties() {
     return {
-      sampleids: Array,
+      sampleids: Object,
       accession: String
     };
   }
@@ -28,11 +28,8 @@ class GtcWcExternal extends LitElement {
   constructor() {
     super();
     console.log("constructor");
-    this.accession="G54245YQ";
-    this.image="";
-    this.sampleids=[];
-    this.mass=null;
-    this.contributionTime=null;
+    this.accession="G06334MO";
+    this.sampleids={};
   }
 
   connectedCallback() {
@@ -64,17 +61,26 @@ class GtcWcExternal extends LitElement {
       console.log(results);
 
       this.sampleids = results.pop();
+      console.log("sampleids");
+      console.log(this.sampleids);
+      var test = 'GlycomeDB'
+      console.log(this.sampleids[test].label);
+      console.log(typeof(this.sampleids));
     });
   }
 
   _processHtml() {
     return html `
     <ul class="externalList">
-      ${this.sampleids.map(data => html`
-        <li>
-      		<p class="externalList_heading">${data}</p>
-      		<ul class="externalList_category"></ul>
-        </li>
+      ${Object.keys(this.sampleids).map(item => html`
+      <span>${item}: ${this.sampleids[item].label}&nbsp;<span>
+      <p class="externalList_heading">${this.sampleids[item].label}</p>
+      <ul class="externalList_category">
+		  {{#each this.list}}
+			  <li><a href="{{{url}}}" target="_blank">{{id}}</a></li>
+      {{/each}}
+      </ul>
+
       `)}
     </ul>
     `;
