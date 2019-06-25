@@ -202,8 +202,13 @@ class GtcWcExternal extends LitElement {
     </ul>
     `;
   }
-  sourceButton(){
-    
+
+  fromButton(){
+    Array.prototype.forEach.call(document.selectAll('.source_btn'), function (el) {
+    el.addEventListener('click', function (e) {
+      e.currentTarget.nextElementSibling.classList.toggle('source_content--show');
+    });
+    }); 
   }
 }
 

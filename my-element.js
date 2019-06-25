@@ -30,7 +30,16 @@ class MyElement extends LitElement {
               html `<p>Render some HTML if myInt is 10`:
         html `<p>Render some other HTML if myInt is other than 10</p>`
      }
+     <div>Hello World</div>
     `;
+  }
+    firstUpdated(changedProperties) {
+    let event = new CustomEvent('my-event', {
+      detail: {
+        message: 'Something important happened'
+      }
+    });
+    this.dispatchEvent(event);
   }
 }
 
