@@ -1,20 +1,28 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html, css } from 'lit-element';
 
 class GtcWcExternal extends LitElement {
+  static styles = css`
+
+    .externalList {
+      margin: 10px 0 0;
+      padding: 0;
+      font-size: 14px;
+      list-style-type: none;
+    }
+  `;
+
+  render() {
+    return html `
+
+  <div id="summary">${this._processHtml()}<div>
+   `;
+  }
+
   static get properties() {
     return {
       sampleids: Object,
       accession: String
     };
-  }
-
-  render() {
-    return html `
-<style>
-  padding: 10px; margin-bottom: 10px; border: 1px solid #333333;
-</style>
-  <div id="summary">${this._processHtml()}<div>
-   `;
   }
 
   // </div>
@@ -75,11 +83,12 @@ class GtcWcExternal extends LitElement {
       ${Object.keys(this.sampleids).map(item => html`
       <span>${item}: ${this.sampleids[item].label}&nbsp;<span>
       <p class="externalList_heading">${this.sampleids[item].label}</p>
-      <ul class="externalList_category">
-		  {{#each this.list}}
-			  <li><a href="{{{url}}}" target="_blank">{{id}}</a></li>
-      {{/each}}
-      </ul>
+      <p class="externalList_heading">this.sampleids[item]: ${this.sampleids[item]}</p>
+      <p>${this.sampleids[item].list.map(item => html`
+          <span>${item.id}: </span>
+          <li><a href="${item.url}" target="_blank">${item.id}</a></li>
+
+          `)}</p>
 
       `)}
     </ul>
