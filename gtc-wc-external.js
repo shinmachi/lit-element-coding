@@ -4,7 +4,8 @@ class GtcWcExternal extends LitElement {
   static get properties() {
     return {
       sampleids: Object,
-      accession: String
+      accession: String,
+      toggle: Object
     };
   }
   static get styles() {
@@ -132,6 +133,7 @@ class GtcWcExternal extends LitElement {
     return html `
 
     <div>${this._processHtml()}<div>
+
    `;
   }
 
@@ -171,9 +173,9 @@ class GtcWcExternal extends LitElement {
       this.sampleids = results.pop();
       console.log("sampleids");
       console.log(this.sampleids);
-      var test = 'GlycomeDB'
-      console.log(this.sampleids[test].label);
-      console.log(typeof(this.sampleids));
+      // var test = 'GlycomeDB'
+      // console.log(this.sampleids[test].label);
+      // console.log(typeof(this.sampleids));
     });
   }
 
@@ -189,7 +191,7 @@ class GtcWcExternal extends LitElement {
         `)}
       </ul>
       <div class="source">
-        <a class="source_btn" @click=${this.clickHandler}">from ${this.sampleids[item].from}</a>
+        <a class="source_btn" @click=${this.toggle}>from ${this.sampleids[item].from}</a>
         <div class="source_content">
           <p class="source_text">
             ${this.sampleids[item].description}</br>
@@ -206,10 +208,9 @@ class GtcWcExternal extends LitElement {
 
 
   toggle(){
-    Array.prototype.forEach.call(_processHtml.querySelectorAll('.source_btn'), function(node) {
-    console.log('node');
-    console.log(node);
-   });
+    Array.prototype.forEach.call(this._processHtml.querySelectorAll('.source_btn'), function(el) {
+      console.log(el.entries);
+    });
   }
 
 
