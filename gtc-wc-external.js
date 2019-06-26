@@ -4,9 +4,7 @@ class GtcWcExternal extends LitElement {
   static get properties() {
     return {
       sampleids: Object,
-      accession: String,
-      clicked: Boolean,
-      prop1: String
+      accession: String
     };
   }
   static get styles() {
@@ -142,11 +140,7 @@ class GtcWcExternal extends LitElement {
     console.log("constructor");
     this.accession="G06334MO";
     this.sampleids={};
-    this.clicked=true;
-    this.prop1='source_content';
-    Array.prototype.forEach.call(document.querySelectorAll('span'), function(node) {
-    console.log(node);
-});
+
   }
 
   connectedCallback() {
@@ -196,7 +190,7 @@ class GtcWcExternal extends LitElement {
       </ul>
       <div class="source">
         <a class="source_btn" @click=${this.clickHandler}">from ${this.sampleids[item].from}</a>
-        <div class="${this.clicked? "source_content": "source_content--show"}">
+        <div class="source_content">
           <p class="source_text">
             ${this.sampleids[item].description}</br>
             URL: <a href="${this.sampleids[item].partnerurl}" target="_blank">${this.sampleids[item].partnerurl}</a>
@@ -209,9 +203,13 @@ class GtcWcExternal extends LitElement {
     </ul>
     `;
   }
-  clickHandler(event){
-    console.log(event.target);
-    this.clicked = !this.clicked;
+
+
+  toggle(){
+    Array.prototype.forEach.call(_processHtml.querySelectorAll('.source_btn'), function(node) {
+    console.log('node');
+    console.log(node);
+   });
   }
 
 
