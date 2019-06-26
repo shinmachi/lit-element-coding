@@ -130,9 +130,6 @@ class GtcWcExternal extends LitElement {
     return html `
 
     <div>${this._processHtml()}<div>
-    <script>
-
-    </script>
    `;
   }
 
@@ -141,6 +138,7 @@ class GtcWcExternal extends LitElement {
     console.log("constructor");
     this.accession="G06334MO";
     this.sampleids={};
+    this.clicked=true;
   }
 
   connectedCallback() {
@@ -189,27 +187,26 @@ class GtcWcExternal extends LitElement {
         `)}
       </ul>
       <div class="source">
-        <a class="source_btn">from ${this.sampleids[item].from}</a>
-        <div class="source_content">
+        <a class="source_btn" @click=${this.clickHandler}">from ${this.sampleids[item].from}</a>
+        <div class="${this.clicked? "source_content": "source_content--show"}">
           <p class="source_text">
             ${this.sampleids[item].description}</br>
             URL: <a href="${this.sampleids[item].partnerurl}" target="_blank">${this.sampleids[item].partnerurl}</a>
           </p>
         </div>
+
 		  </div>
     </li>
     `)}
     </ul>
     `;
   }
-
-  fromButton(){
-    Array.prototype.forEach.call(document.selectAll('.source_btn'), function (el) {
-    el.addEventListener('click', function (e) {
-      e.currentTarget.nextElementSibling.classList.toggle('source_content--show');
-    });
-    }); 
+  clickHandler(event){
+    console.log(event.target);
+    this.clicked = !this.clicked;
   }
+
+
 }
 
 customElements.define('gtc-wc-external', GtcWcExternal);
