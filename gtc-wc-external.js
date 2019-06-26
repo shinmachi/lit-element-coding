@@ -4,12 +4,13 @@ class GtcWcExternal extends LitElement {
   static get properties() {
     return {
       sampleids: Object,
-      accession: String
+      accession: String,
+      clicked: Boolean
     };
   }
-
-  static styles = css`
-    main {
+  static get styles() {
+    return css `
+        main {
       border: 0;
       border-radius: 0;
       box-shadow: none;
@@ -124,7 +125,9 @@ class GtcWcExternal extends LitElement {
     .source_btn:hover {
       background-color: #EEE;
     }
-  `;
+    `;
+  }
+
 
   render() {
     return html `

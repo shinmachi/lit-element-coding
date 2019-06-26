@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 class MyElement extends LitElement {
   static get properties() {
@@ -8,6 +8,21 @@ class MyElement extends LitElement {
       myBool: { type: Boolean },
       myInt: { type: Number }
     };
+  }
+  static get styles() {
+    return css`
+      p {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+    `;
   }
   constructor() {
     super();
@@ -30,16 +45,14 @@ class MyElement extends LitElement {
               html `<p>Render some HTML if myInt is 10`:
         html `<p>Render some other HTML if myInt is other than 10</p>`
      }
-     <div>Hello World</div>
+     <p class="${this.myBool ? 'red' : 'blue' }">styled paragraph</p>
+     <button @click="${this.clickHandler}">Click</button>
     `;
   }
-    firstUpdated(changedProperties) {
-    let event = new CustomEvent('my-event', {
-      detail: {
-        message: 'Something important happened'
-      }
-    });
-    this.dispatchEvent(event);
+
+  clickHandler(event) {
+    console.log(event.target);
+    this.myBool = !this.myBool;
   }
 }
 
