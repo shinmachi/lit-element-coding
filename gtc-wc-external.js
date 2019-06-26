@@ -5,7 +5,8 @@ class GtcWcExternal extends LitElement {
     return {
       sampleids: Object,
       accession: String,
-      clicked: Boolean
+      clicked: Boolean,
+      prop1: String
     };
   }
   static get styles() {
@@ -142,6 +143,10 @@ class GtcWcExternal extends LitElement {
     this.accession="G06334MO";
     this.sampleids={};
     this.clicked=true;
+    this.prop1='source_content';
+    Array.prototype.forEach.call(document.querySelectorAll('span'), function(node) {
+    console.log(node);
+});
   }
 
   connectedCallback() {
