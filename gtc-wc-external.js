@@ -10,6 +10,8 @@ class GtcWcExternal extends LitElement {
   }
   static get styles() {
     return css `
+    @charset "UTF-8";
+
     main {
       border: 0;
       border-radius: 0;
