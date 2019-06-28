@@ -10,7 +10,7 @@ class GtcWcExternal extends LitElement {
   }
   static get styles() {
     return css `
-        main {
+    main {
       border: 0;
       border-radius: 0;
       box-shadow: none;
@@ -126,6 +126,7 @@ class GtcWcExternal extends LitElement {
       background-color: #EEE;
     }
     
+    /* Toggle */
     .toggleBox_label {
       cursor: pointer;
     }
@@ -156,7 +157,7 @@ class GtcWcExternal extends LitElement {
   constructor() {
     super();
     console.log("constructor");
-    this.accession="G06334MO";
+    this.accession="G27385LP";
     this.sampleids={};
 
   }
