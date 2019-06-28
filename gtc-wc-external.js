@@ -125,6 +125,22 @@ class GtcWcExternal extends LitElement {
     .source_btn:hover {
       background-color: #EEE;
     }
+    
+    .toggleBox_label {
+      cursor: pointer;
+    }
+
+    .toggleBox_checkbox {
+      display: none;
+    }
+
+    .toggleBox_checkbox + .toggleBox_content {
+      display: none;
+    }
+
+    .toggleBox_checkbox:checked + .toggleBox_content {
+      display: block;
+    }
     `;
   }
 
@@ -182,7 +198,7 @@ class GtcWcExternal extends LitElement {
   _processHtml() {
     return html `
     <ul class="externalList">
-    ${Object.keys(this.sampleids).map(item => html`
+    ${Object.keys(this.sampleids).map((item, index) => html`
     <li>
       <p class="externalList_heading">${this.sampleids[item].label}</p>
       <ul class="externalList_category">
@@ -190,15 +206,15 @@ class GtcWcExternal extends LitElement {
         <li><a href="${item.url}" target="_blank">${item.id}</a></li>
         `)}
       </ul>
-      <div class="source">
-        <a class="source_btn" @click=${this.toggle}>from ${this.sampleids[item].from}</a>
-        <div class="source_content">
+      <div class="source toggleBox">
+        <label for="${index}" class="source_btn toggleBox_label">from ${this.sampleids[item].from}</label>
+        <input id="${index}" class="toggleBox_checkbox" type="checkbox" />
+        <div class="source_content toggleBox_content">
           <p class="source_text">
             ${this.sampleids[item].description}</br>
             URL: <a href="${this.sampleids[item].partnerurl}" target="_blank">${this.sampleids[item].partnerurl}</a>
           </p>
         </div>
-
 		  </div>
     </li>
     `)}
@@ -207,11 +223,7 @@ class GtcWcExternal extends LitElement {
   }
 
 
-  toggle(){
-    Array.prototype.forEach.call(this._processHtml.querySelectorAll('.source_btn'), function(el) {
-      console.log(el.entries);
-    });
-  }
+
 
 
 }
